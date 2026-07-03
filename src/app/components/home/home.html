@@ -1,0 +1,50 @@
+<div class="container">
+
+  <app-header
+    [ratedCount]="ratedCount()"
+    [averageRating]="averageRating()"
+  />
+
+  <!-- État de chargement -->
+  @if (restaurantsRes.isLoading()) {
+    <div class="loading-state">
+      <div class="spinner"></div>
+      <p>Chargement des restaurants...</p>
+    </div>
+  }
+
+  <!-- État d'erreur -->
+  @else if (restaurantsRes.error()) {
+    <div class="error-state">
+      <div class="error-icon">⚠️</div>
+      <h2>Impossible de charger les restaurants</h2>
+      <p>Vérifiez votre connexion au serveur.</p>
+      <button (click)="restaurantsRes.reload()" class="retry-btn">
+        🔄 Réessayer
+      </button>
+    </div>
+  }
+
+  <!-- Données chargées -->
+  @else {
+    <div class="toolbar">
+      <button
+        class="filter-btn"
+        (click)="toggleFilter()">
+
+        @if(showBestOnly()){
+          Tout afficher
+        } @else {
+          Restaurants ≥ 4★
+        }
+
+      </button>
+    </div>
+
+    <app-restaurant-list
+      [restaurants]="filteredRestaurants()"
+      (restaurantRated)="updateRestaurantRating($event)"
+    />
+  }
+
+</div>

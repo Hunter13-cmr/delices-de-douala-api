@@ -1,0 +1,37 @@
+<div class="card">
+
+    <img
+    [src]="restaurant().image"
+    [alt]="restaurant().name">
+    
+    <div class="content">
+
+        <h2>{{restaurant().name}}</h2>
+
+        <p class="district">
+
+            🎯 {{restaurant().district}}
+
+        </p>
+
+        <p class="specialty">
+
+            🍽 {{restaurant().specialty}}
+
+        </p>
+
+        <app-star-rating
+
+            [currentRating]="restaurant().currentRating || 0"
+
+            (ratingChanged)="onRatingChanged($event)"
+
+        />
+
+        <a [routerLink]="['/restaurant', restaurant().id]" class="view-menu-btn">
+          Voir le menu →
+        </a>
+
+    </div>
+
+</div>

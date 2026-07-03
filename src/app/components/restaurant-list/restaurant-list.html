@@ -1,0 +1,15 @@
+<div class="restaurant-grid">
+
+@for(restaurant of restaurants(); track restaurant.id){
+
+    <app-restaurant-card
+
+        [restaurant]="restaurant"
+
+        (restaurantRated)="onRestaurantRated($event)"
+
+    />
+
+}
+
+</div>

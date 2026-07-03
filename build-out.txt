@@ -1,0 +1,23 @@
+Browser bundles     
+Initial chunk files  | Names            |  Raw size | Estimated transfer size
+main-KBTEIVKI.js     | main             | 355.05 kB |                96.47 kB
+styles-U2QXMRYN.css  | styles           | 301 bytes |               301 bytes
+
+                     | Initial total    | 355.35 kB |                96.78 kB
+
+
+Server bundles      
+Initial chunk files  | Names            |  Raw size
+server.mjs           | server           | 816.75 kB |                        
+main.server.mjs      | main.server      | 793.76 kB |                        
+polyfills.server.mjs | polyfills.server | 233.65 kB |                        
+chunk-ITOR7NUX.mjs   | -                |   1.38 kB |                        
+chunk-KYQQYI4M.mjs   | -                |   1.01 kB |                        
+
+Lazy chunk files     | Names            |  Raw size
+chunk-KOPHEWZ5.mjs   | xhr2             |  12.17 kB |                        
+chunk-PDE7QYL4.mjs   | xhr2             |  12.07 kB |                        
+
+Prerendered 1 static route.
+Application bundle generation failed. [48.749 seconds] - 2026-07-03T10:49:57.922Z
+

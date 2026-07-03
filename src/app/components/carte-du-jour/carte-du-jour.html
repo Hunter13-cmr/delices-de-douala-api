@@ -1,0 +1,184 @@
+<!-- En-tête avec infos du restaurant -->
+<header class="header" [style.background-image]="'url(' + (restaurant()?.headerImage || restaurant()?.image) + ')'">
+  <div class="header-content">
+    <a routerLink="/" class="back-link">← Retour aux restaurants</a>
+
+    @if (restaurant()) {
+      <div class="restaurant-header">
+        @if (restaurant()!.image) {
+          <img
+            [src]="restaurant()!.image"
+            [alt]="restaurant()!.name"
+            class="restaurant-image"
+          />
+        }
+        <div class="restaurant-info">
+          <h1 class="title">🍽️ {{ restaurant()!.name }}</h1>
+          <p class="district">📍 {{ restaurant()!.district }}</p>
+          <p class="specialty">Spécialité : {{ restaurant()!.specialty }}</p>
+
+          @if (restaurantRating() > 0) {
+            <div class="rating-display">
+              <span class="stars-display">{{ '⭐'.repeat(restaurantRatingRounded()) }}</span>
+              <span class="rating-text">Note moyenne : {{ restaurantRating() }}/5</span>
+            </div>
+          } @else {
+            <p class="no-rating">Pas encore noté</p>
+          }
+        </div>
+      </div>
+    }
+  </div>
+</header>
+
+<!-- Section principale -->
+<main class="container">
+  <!-- Plat du jour en évidence -->
+  @if (platDuJour()) {
+    <section class="plat-du-jour">
+      <div class="plat-du-jour-badge">⭐ Plat du jour</div>
+      <div class="plat-du-jour-content">
+        @if (platDuJour()!.image) {
+          <img
+            [src]="platDuJour()!.image"
+            [alt]="platDuJour()!.nom"
+            class="plat-du-jour-image"
+          />
+        }
+        <h2>{{ platDuJour()!.nom }}</h2>
+        <p class="category-badge">{{ platDuJour()!.categorie }}</p>
+        <p class="price">
+          {{ platDuJour()!.prix | currency: 'XAF': 'symbol': '1.0-0' }}
+        </p>
+        <p class="status-plat-jour"
+           [class.available]="platDuJour()!.disponible"
+           [class.unavailable]="!platDuJour()!.disponible">
+          {{ platDuJour()!.disponible ? '✓ Disponible' : '✕ Épuisé' }}
+        </p>
+      </div>
+    </section>
+  }
+
+  <!-- Barre de filtre et recherche -->
+  <section class="filters-section">
+    <div class="search-box">
+      <input
+        type="text"
+        placeholder="🔍 Chercher un plat..."
+        [ngModel]="searchQuery()"
+        (ngModelChange)="searchQuery.set($event)"
+        class="search-input"
+      />
+    </div>
+
+    <div class="categories-filter">
+      @for (cat of categories(); track cat) {
+        <button
+          [class.active]="selectedCategory() === cat"
+          (click)="selectCategory(cat)"
+          class="category-btn"
+        >
+          {{ cat }}
+        </button>
+      }
+    </div>
+
+    @if (searchQuery() !== '' || selectedCategory() !== 'Toutes') {
+      <button
+        (click)="resetFilters()"
+        class="reset-btn"
+      >
+        🔄 Réinitialiser
+      </button>
+    }
+  </section>
+
+  <!-- État de chargement -->
+  @if (menu.isLoading()) {
+    <section class="loading-state">
+      <div class="spinner"></div>
+      <p>Chargement du menu...</p>
+    </section>
+  }
+
+  <!-- État d'erreur -->
+  @else if (menu.error()) {
+    <section class="error-state">
+      <div class="error-icon">⚠️</div>
+      <h2>Impossible de charger le menu</h2>
+      <p>Erreur lors de la connexion au serveur.</p>
+      <button (click)="menu.reload()" class="retry-btn">
+        🔄 Réessayer
+      </button>
+    </section>
+  }
+
+  <!-- Liste des plats -->
+  @else {
+    <!-- Compteur et statistiques -->
+    <div class="stats-bar">
+      <span class="stat">📊 {{ platCount() }} plat(s) trouvé(s)</span>
+      @if (platIndisponiblesCount() > 0) {
+        <span class="stat unavailable-stat">
+          ⭕ {{ platIndisponiblesCount() }} indisponible(s)
+        </span>
+      }
+    </div>
+
+    <!-- Liste vide -->
+    @if (platsFiltres().length === 0) {
+      <section class="empty-state">
+        <div class="empty-icon">🔍</div>
+        <h2>Aucun plat ne correspond à votre recherche</h2>
+        <p>Essayez de modifier vos filtres ou votre recherche.</p>
+        <button (click)="resetFilters()" class="reset-btn">
+          🔄 Réinitialiser les filtres
+        </button>
+      </section>
+    }
+
+    <!-- Grille de plats -->
+    <section class="plats-grid">
+      @for (plat of platsFiltres(); track plat.id) {
+        <article
+          [class]="'plat-card ' + (plat.disponible ? 'plat-disponible' : 'plat-indisponible')"
+        >
+          <!-- Badge indisponible -->
+          @if (!plat.disponible) {
+            <div class="badge-epuise">Épuisé</div>
+          }
+
+          <!-- Image du plat -->
+          @if (plat.image) {
+            <div class="plat-image-container">
+              <img
+                [src]="plat.image"
+                [alt]="plat.nom"
+                class="plat-image"
+              />
+            </div>
+          }
+
+          <!-- Contenu du plat -->
+          <div class="plat-content">
+            <h3 class="plat-nom">{{ plat.nom }}</h3>
+            <p class="plat-categorie">{{ plat.categorie }}</p>
+            <div class="plat-footer">
+              <span class="plat-prix">
+                {{ plat.prix | currency: 'XAF': 'symbol': '1.0-0' }}
+              </span>
+              <span
+                class="plat-status"
+                [class.available]="plat.disponible"
+                [class.unavailable]="!plat.disponible"
+              >
+                {{ plat.disponible ? '✓' : '✕' }}
+              </span>
+            </div>
+          </div>
+        </article>
+      }
+    </section>
+  }
+</main>
+

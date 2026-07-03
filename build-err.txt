@@ -1,0 +1,13 @@
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1mNG8113: RouterLink is not used within the template of HomeComponent[0m [1m[35m[plugin angular-compiler][0m
+
+    src/app/components/home/home.ts:15:4:
+[37m      15 │     [32mRouterLink[37m,
+         ╵     [32m~~~~~~~~~~[0m
+
+
+[33m▲ [43;33m[[43;30mWARNING[43;33m][0m [1msrc/app/components/carte-du-jour/carte-du-jour.css exceeded maximum budget. Budget 4.00 kB was not met by 1.77 kB with a total of 5.77 kB.[0m
+
+
+[31mX [41;31m[[41;97mERROR[41;31m][0m [1mThe 'restaurant/:id' route uses prerendering and includes parameters, but 'getPrerenderParams' is missing. Please define 'getPrerenderParams' function for this route in your server routing configuration or specify a different 'renderMode'.[0m
+
+

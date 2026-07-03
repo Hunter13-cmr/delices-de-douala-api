@@ -1,0 +1,54 @@
+.stars{
+    display:flex;
+    gap:6px;
+    margin-bottom:10px;
+}
+
+.star{
+    font-size:32px;
+    color:#d6d6d6;
+    cursor:pointer;
+    transition:all .25s ease;
+}
+
+.star:hover{
+    transform:scale(1.2);
+}
+
+.filled{
+    color:#FFC107;
+}
+
+.rating-text{
+    min-height:24px;
+    font-weight:600;
+    transition:all .3s ease;
+}
+
+.preview{
+    color:#ff9800;
+    animation:fadeIn .25s;
+}
+
+.success{
+    color:#2e7d32;
+}
+
+.hint{
+    color:#777;
+    font-style:italic;
+}
+
+@keyframes fadeIn{
+
+    from{
+        opacity:0;
+        transform:translateY(6px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}

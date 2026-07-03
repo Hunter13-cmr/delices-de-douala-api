@@ -1,0 +1,163 @@
+.header {
+    background:
+        linear-gradient(
+            rgba(0,0,0,.8),
+            rgba(0,0,0,.8)
+        ),
+        url('/images/restaurant.jpg');
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    min-height: 450px;
+
+    display: flex;
+    align-items: center;
+
+    border-radius: 20px;
+    color: white;
+    margin-bottom: 30px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+}
+
+/* Conteneur principal */
+.overlay {
+    width: 100%;
+    padding: 60px 40px;
+}
+
+/* Organisation du header */
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 50px;
+    width: 100%;
+}
+
+/* Partie texte */
+.header-text {
+    flex: 1;
+}
+
+.header h1 {
+    font-size: 46px;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.subtitle {
+    font-size: 20px;
+    line-height: 1.6;
+    max-width: 550px;
+    opacity: .95;
+}
+
+/* Partie statistiques */
+.stats {
+    display: flex;
+    gap: 20px;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+}
+
+/* Carte statistique */
+.stat-card {
+    background: rgba(255,255,255,.18);
+    backdrop-filter: blur(10px);
+    border-radius: 18px;
+    padding: 20px 25px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    min-width: 220px;
+    transition: transform .2s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+}
+
+.icon {
+    font-size: 42px;
+}
+
+.stat-card h3 {
+    margin: 0;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+/* Note moyenne avec couleur frappante */
+.stat-card:last-child h3 {
+    background: linear-gradient(135deg, #ff6b6b, #ffd93d, #6bcb77, #4d96ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-size: 34px;
+    font-weight: 900;
+    text-shadow: none;
+    filter: drop-shadow(0 0 8px rgba(255, 107, 107, 0.5));
+    animation: ratingGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes ratingGlow {
+    0% {
+        filter: drop-shadow(0 0 6px rgba(255, 107, 107, 0.4));
+    }
+    100% {
+        filter: drop-shadow(0 0 14px rgba(77, 150, 255, 0.6));
+    }
+}
+
+.stat-card p {
+    margin: 5px 0 0;
+    opacity: .9;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+
+    .header {
+        min-height: auto;
+    }
+
+    .header-content {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .stats {
+        width: 100%;
+        justify-content: flex-start;
+    }
+
+}
+
+@media (max-width: 768px) {
+
+    .overlay {
+        padding: 40px 20px;
+    }
+
+    .header h1 {
+        font-size: 34px;
+    }
+
+    .subtitle {
+        font-size: 17px;
+    }
+
+    .stats {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .stat-card {
+        width: 100%;
+        min-width: auto;
+    }
+
+}

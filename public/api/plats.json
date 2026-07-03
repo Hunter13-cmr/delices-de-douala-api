@@ -1,0 +1,22 @@
+[
+  { "id": "d1", "nom": "Ndolè aux crevettes",      "prix": 3500, "categorie": "Plats",      "disponible": true, "image": "/images/ndole-crevettes.jpg", "restaurantId": 1 },
+  { "id": "d2", "nom": "Poulet DG",                "prix": 4000, "categorie": "Plats",      "disponible": true, "image": "/images/poulet-dg.jpg", "restaurantId": 1 },
+  { "id": "d3", "nom": "Poisson braisé + miondo",  "prix": 3000, "categorie": "Grillades",  "disponible": true, "image": "/images/poisson-braise.jpg", "restaurantId": 1 },
+  { "id": "d4", "nom": "Eru + water fufu",         "prix": 2500, "categorie": "Plats",      "disponible": true, "image": "/images/eru-pieds-boeuf.jpg", "restaurantId": 2 },
+  { "id": "d5", "nom": "Koki + plantain mûr",      "prix": 2000, "categorie": "Végétarien", "disponible": true, "image": "/images/koki-plantain.jpg", "restaurantId": 2 },
+  { "id": "d6", "nom": "Jus de bissap",            "prix": 1000, "categorie": "Boissons",   "disponible": true, "image": "/images/bissap.jpg", "restaurantId": 1 },
+  { "id": "d7", "nom": "Jus de gingembre",         "prix": 1000, "categorie": "Boissons",   "disponible": false, "image": "/images/gingimbre.jpg", "restaurantId": 2 },
+  { "id": "d8", "nom": "Bobolo et sauce arachide", "prix": 2000, "categorie": "Plats",      "disponible": true, "image": "/images/bobolo-sauce-arachide.jpg", "restaurantId": 3 },
+  { "id": "d9", "nom": "Miondo + poisson fumé",    "prix": 2500, "categorie": "Grillades",  "disponible": true, "image": "/images/poisson-braise.jpg", "restaurantId": 3 },
+  { "id": "d10", "nom": "Foléré",                  "prix": 800,  "categorie": "Boissons",   "disponible": true, "image": "/images/folere.jpg", "restaurantId": 3 },
+  { "id": "d11", "nom": "Nkui + kola",             "prix": 3000, "categorie": "Plats",      "disponible": true, "image": "/images/ndole-crevettes.jpg", "restaurantId": 4 },
+  { "id": "d12", "nom": "Brochettes de bœuf",      "prix": 2500, "categorie": "Grillades",  "disponible": true, "image": "/images/poisson-braise.jpg", "restaurantId": 4 },
+  { "id": "d13", "nom": "Plantain frites + sauce", "prix": 1500, "categorie": "Végétarien", "disponible": false, "image": "/images/plantain.jpg", "restaurantId": 4 },
+  { "id": "d14", "nom": "Mafé de bœuf",            "prix": 3500, "categorie": "Plats",      "disponible": true, "image": "/images/poulet-dg.jpg", "restaurantId": 5 },
+  { "id": "d15", "nom": "Taro + sauce jaune",      "prix": 2000, "categorie": "Végétarien", "disponible": true, "image": "/images/koki-plantain.jpg", "restaurantId": 5 },
+  { "id": "d16", "nom": "Jus de tamarin",          "prix": 1000, "categorie": "Boissons",   "disponible": true, "image": "/images/jus.jpg", "restaurantId": 5 },
+  { "id": "d17", "nom": "Poulet bicyclette",       "prix": 4500, "categorie": "Grillades",  "disponible": true, "image": "/images/poulet-dg.jpg", "restaurantId": 6 },
+  { "id": "d18", "nom": "Okok",                    "prix": 3000, "categorie": "Plats",      "disponible": true, "image": "/images/eru-pieds-boeuf.jpg", "restaurantId": 6 },
+  { "id": "d19", "nom": "Christophine au gratin",  "prix": 2000, "categorie": "Végétarien", "disponible": true, "image": "/images/cristophine.jpg", "restaurantId": 6 },
+  { "id": "d20", "nom": "Mint julep camerounais",  "prix": 1500, "categorie": "Boissons",   "disponible": true, "image": "/images/mint.jpg", "restaurantId": 6 }
+]
