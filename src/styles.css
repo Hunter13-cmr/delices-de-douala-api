@@ -88,6 +88,7 @@ app-root {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
 router-outlet {
@@ -119,6 +120,36 @@ router-outlet {
 .theme-toggle:hover {
   transform: scale(1.1);
   box-shadow: var(--shadow-lg);
+}
+
+/* ============================================
+   Responsive global
+   ============================================ */
+@media (max-width: 768px) {
+  html, body {
+    overflow-x: hidden;
+  }
+
+  .theme-toggle {
+    top: 0.6rem;
+    right: 0.6rem;
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+  }
+
+  .app-footer {
+    padding: 1.5rem 0.8rem 1.2rem;
+  }
+
+  .app-footer p {
+    font-size: 0.85rem;
+  }
+
+  .app-footer .footer-email {
+    font-size: 0.8rem;
+    padding: 0.2rem 0.8rem;
+  }
 }
 
 /* --- Footer global --- */

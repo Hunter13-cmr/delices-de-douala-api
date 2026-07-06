@@ -52,3 +52,22 @@
     }
 
 }
+
+/* Responsive mobile */
+@media (max-width: 768px) {
+  .stars {
+    justify-content: center;
+  }
+
+  .star {
+    font-size: 28px;
+  }
+
+  .preview,
+  .success,
+  .hint,
+  .thanks {
+    text-align: center;
+    font-size: 0.9rem;
+  }
+}

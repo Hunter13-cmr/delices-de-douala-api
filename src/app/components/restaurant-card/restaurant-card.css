@@ -5,6 +5,8 @@
 }
 
 .card{
+    width: 100%;
+    max-width: 100%;
 
     background:white;
 
@@ -68,7 +70,7 @@
 }
 
 .view-menu-btn {
-  display: inline-block;
+  display: block;
   margin-top: 12px;
   padding: 0.5rem 1rem;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -77,10 +79,31 @@
   font-size: 0.85rem;
   font-weight: 600;
   text-align: center;
+  text-decoration: none;
   transition: all 0.3s ease;
 }
 
 .card:hover .view-menu-btn {
   transform: translateX(5px);
   box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+}
+
+/* Responsive mobile */
+@media (max-width: 768px) {
+  .card img {
+    height: 180px;
+  }
+
+  .content {
+    padding: 15px;
+  }
+
+  .content h2 {
+    font-size: 1.2rem;
+  }
+
+  .view-menu-btn {
+    width: 100%;
+    text-align: center;
+  }
 }

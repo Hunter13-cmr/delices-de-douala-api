@@ -1,9 +1,14 @@
-.restaurant-grid{
+.restaurant-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 26px;
+    width: 100%;
+}
 
-    display:grid;
-
-    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-
-    gap:26px;
-
+/* Responsive mobile */
+@media (max-width: 768px) {
+    .restaurant-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
 }
